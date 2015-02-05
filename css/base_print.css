@@ -1,0 +1,160 @@
+#nonprint {
+    display: none;
+}
+#print {
+    display: block;
+}
+#templates {
+    display: none;
+}
+
+.page {
+    margin-left: 2cm;
+    margin-top: 0.5cm;
+    margin-right: 1cm;
+    margin-bottom: 1cm;
+    width: 15.5cm;
+    height: 26.4cm;
+    position: relative;
+
+    font-size: 10pt;
+}
+
+.page-separator {
+    height: 0.0cm;
+    font-size: 1%;
+    overflow: hidden;
+}
+
+.page .address {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.page .address strong {
+    font-size: 120%;
+    font-weight: bold;
+    display: block;
+}
+
+.page .logo {
+    position: absolute;
+    top: -0.9cm;
+    right: 0;
+    width: 5cm;
+}
+
+.page .title {
+    font-size: 130%;
+    font-weight: bold;
+    position: absolute;
+    top: 2.2cm;
+}
+
+.page .name {
+    position: absolute;
+    top: 3.2cm;
+}
+
+.page .name_value {
+    position: absolute;
+    top: 3.2cm;
+    left: 3cm;
+    width: 9cm;
+    font-weight: bold;
+    padding-left: 0.1cm;
+    border-bottom: 1px solid #000;
+}
+
+.page .personalnumber {
+    position: absolute;
+    top: 4cm;
+}
+
+.page .personalnumber_value {
+    position: absolute;
+    top: 4cm;
+    left: 3cm;
+    width: 2.5cm;
+    padding-left: 0.1cm;
+    border-bottom: 1px solid #000;
+}
+
+.page .monthyear {
+    position: absolute;
+    top: 4cm;
+    left: 6cm;
+}
+
+.page .monthyear_value {
+    position: absolute;
+    top: 4cm;
+    left: 8.1cm;
+    width: 3.9cm;
+    font-weight: bold;
+    padding-left: 0.1cm;
+    border-bottom: 1px solid #000;
+}
+
+.page table {
+    position: absolute;
+    top: 5.2cm;
+    border-collapse: collapse;
+    border: 1px solid #000;
+    width: 100%;
+}
+
+.page table th,
+.page table td {
+    border: 1px solid #000;
+    padding: 1px;
+}
+
+.page table th {
+    text-align: center;
+    font-weight: normal;
+    white-space: nowrap;
+}
+
+.page table td {
+    text-align: center;
+}
+
+.page div.sum {
+    position: absolute;
+    top: 23.9cm;
+    left: 6.3cm;
+    width: 3cm;
+    border-bottom: 2px double #000;
+}
+
+.page div.sum strong {
+    margin-right: 0.3cm;
+}
+
+.page .sign_employee {
+    position: absolute;
+    top: 25.5cm;
+    width: 7cm;
+    border-top: 1px solid #000;
+    font-size: 90%;
+}
+
+.page .sign_employee span {
+    margin-right: 1.3cm;
+    padding-left: 0.1cm;
+}
+
+.page .sign_employer {
+    position: absolute;
+    top: 25.5cm;
+    left: 8.5cm;
+    width: 7cm;
+    border-top: 1px solid #000;
+    font-size: 90%;
+}
+
+.page .sign_employer span {
+    margin-right: 1.4cm;
+    padding-left: 0.1cm;
+}
