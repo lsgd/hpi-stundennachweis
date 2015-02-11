@@ -97,13 +97,11 @@
                                                     <label class="right">Verteilen auf Tage</label>
                                                 </div>
                                                 <div class="small-9 columns">
-                                                    <input type="radio" name="form-distribution" value="1" id="form-distribution1"><label for="form-distribution1">1 Tag</label>
-                                                    <input type="radio" name="form-distribution" value="2" id="form-distribution2" checked="checked"><label for="form-distribution2">2 Tage</label>
-                                                    <input type="radio" name="form-distribution" value="3" id="form-distribution3"><label for="form-distribution3">3 Tage</label>
-                                                    <input type="radio" name="form-distribution" value="4" id="form-distribution4"><label for="form-distribution4">4 Tage</label><br />
-                                                    <input type="radio" name="form-distribution" value="5" id="form-distribution5"><label for="form-distribution5">5 Tage</label>
-                                                    <input type="radio" name="form-distribution" value="6" id="form-distribution6"><label for="form-distribution6">6 Tage</label>
-                                                    <input type="radio" name="form-distribution" value="7" id="form-distribution7"><label for="form-distribution7">7 Tage</label>
+                                                    <input type="checkbox" name="form-distribution" value="1" id="form-distribution1" checked="checked"><label for="form-distribution1">Montag</label>
+                                                    <input type="checkbox" name="form-distribution" value="2" id="form-distribution2" checked="checked"><label for="form-distribution2">Dienstag</label>
+                                                    <input type="checkbox" name="form-distribution" value="3" id="form-distribution3"><label for="form-distribution3">Mittwoch</label><br />
+                                                    <input type="checkbox" name="form-distribution" value="4" id="form-distribution4"><label for="form-distribution4">Donnerstag</label>
+                                                    <input type="checkbox" name="form-distribution" value="5" id="form-distribution5"><label for="form-distribution5">Freitag</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -159,12 +157,25 @@
                                 <ol>
                                     <li>Einstellungen vornehmen</li>
                                     <li>Seite drucken</li>
+                                    <li>Wenn die Seiten nicht passen, versucht einen anderen Browser</li>
                                 </ol>
                             </div>
                             <div class="panel">
                                 Die Stundennachweise werden generiert und sind nur in der Druckansicht sichtbar.
                                 <br />
                                 Es wird am Ende leider eine leere Seite angehängt.
+                                <hr />
+                                <p>
+                                Feiertage werden berücksichtigt und müssen nicht nachgearbeitet werden.
+                                </p>
+                            </div>
+                            <div class="panel">
+                                Getestet mit:
+                                <ul>
+                                    <li>Chrome</li>
+                                    <li>Chromium</li>
+                                    <li>Firefox</li>
+                                </ul>
                             </div>
                         </div>
 
@@ -200,7 +211,7 @@
         <div class="address">
             <strong>Hasso-Plattner-Institut</strong>
             für Softwaresystemtechnik GmbH<br/>
-            Prof.-Dr.-Helmert-Str. 2-3, 14482 Potsdam
+            Prof.-Dr.-Helmert-Str. 2-3; 14482 Potsdam
         </div>
 
         <img class="logo" src="logo.jpg" />

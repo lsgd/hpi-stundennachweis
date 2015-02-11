@@ -25,6 +25,9 @@
     font-size: 1%;
     overflow: hidden;
 }
+.pagebreak {
+    page-break-before: always;
+}
 
 .page .address {
     position: absolute;
@@ -39,7 +42,7 @@
 
 .page .logo {
     position: absolute;
-    top: -0.9cm;
+    top: 0.1cm;
     right: 0;
     width: 5cm;
 }

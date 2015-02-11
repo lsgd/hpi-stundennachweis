@@ -1,8 +1,19 @@
 $(function() {
     std.init();
+    std.loadHolidays();
 });
 
 var std = {};
+
+std.holidays = {};
+
+std.loadHolidays = function() {
+    var year = new Date().getFullYear();
+    var _url = 'tmp/holidays.json';
+    $.getJSON(_url, function( data ) {
+        std.holidays = data;
+    });
+}
 
 std.init = function() {
     $('#form-data').submit(std.submitForm);
@@ -180,6 +191,16 @@ std.generateWorkingHoursPerDay = function(distribution, distributionEqually, wee
     return dayHours;
 }
 
+std.isHoliday = function(year, month, day) {
+    var pad = "00";
+    var month2 = (pad+month).slice(-pad.length);
+    var day2 = (pad+day).slice(-pad.length);
+
+    var d = year + '-' + month2 + '-' + day2;
+
+    return std.holidays[d] != undefined;
+}
+
 std.submitForm = function(e) {
     e.preventDefault();
 
@@ -202,7 +223,13 @@ std.submitForm = function(e) {
     var duration = parseInt($('input[name=form-duration]:checked', $(this)).val());
     var monthStart = parseInt($('#form-start').val());
 
-    var distribution = parseInt($('input[name=form-distribution]:checked', $(this)).val());
+    var distribution = [];
+    $('input[name=form-distribution]').each(function(no, item) {
+        if($(item).is(':checked')) {
+            distribution.push(parseInt($(item).val()));
+        }
+    });
+
     var dayStart = parseInt($('input[name=form-daystart]:checked', $(this)).val());
 
     var distributionEqually = $('input[name=form-distribution-equally]:first', $(this)).is(':checked');
@@ -210,7 +237,7 @@ std.submitForm = function(e) {
     var $print = $('#print');
     $print.empty();
 
-    var workingHoursPerDay = std.generateWorkingHoursPerDay(distribution, distributionEqually, weekHours, duration, monthStart);
+    var workingHoursPerDay = std.generateWorkingHoursPerDay(distribution.length, distributionEqually, weekHours, duration, monthStart);
     var year = new Date().getFullYear();
     var _month = new Date().getMonth() + 1;
     for(var m = 0; m < duration; m++) {
@@ -230,24 +257,40 @@ std.submitForm = function(e) {
         $('.monthyear_value', $page).text(month + '/' + year);
 
         var day = 1;
-        var currentDistribution = distribution;
+        var weekday = new Date(year, month-1, day).getDay();
+        var monthDays = new Date(year, month, 0).getDate();
+        var currentDistribution = distribution.length;
         var sum = 0;
         for(var key in workingHoursPerDay[m]) {
+            while(distribution.indexOf(weekday) == -1) {
+                day += 1;
+                weekday += 1;
+                weekday = weekday % 7;
+            }
+
+            if(day > monthDays) {
+                break;
+            }
+
             var event = std.generateDayEvent(workingHoursPerDay[m][key], dayStart);
             var $tr = $('tr.day.number'+day, $page);
-            $('.begin', $tr).text(event.begin);
-            $('.end', $tr).text(event.end);
-            $('.pause', $tr).text(event.pause);
+
+            if(std.isHoliday(year, month, day)) {
+                $('.end', $tr).text('Feiertag');
+            }
+            else {
+                $('.begin', $tr).text(event.begin);
+                $('.end', $tr).text(event.end);
+                $('.pause', $tr).text(event.pause);
+            }
             $('.sum', $tr).text(event.sum);
 
             sum += event.hours;
 
             currentDistribution -= 1;
             day += 1;
-            if(currentDistribution == 0) {
-                day += 7 - distribution;
-                currentDistribution = distribution;
-            }
+            weekday += 1;
+            weekday = weekday % 7;
         }
 
         var sumMinutes = (sum % 1) * 100;
@@ -256,6 +299,7 @@ std.submitForm = function(e) {
         $('.sum span:first', $page).text(sumText);
 
         $print.append($page[0]);
+        $print.append('<div class="pagebreak"></div>');
         $print.append('<div class="page-separator"></div>');
     }
 
