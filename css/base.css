@@ -1,0 +1,9 @@
+#nonprint {
+    margin-top: 30px;
+}
+#print {
+    display: none
+}
+#templates {
+    display: none
+}

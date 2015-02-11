@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Stundennachweis</title>
+    <link rel="stylesheet" href="css/foundation.css"/>
+    <link rel="stylesheet" href="css/base.css" media="all"/>
+    <link rel="stylesheet" href="css/base_print.css" media="print"/>
+    <link rel="stylesheet" href="css/foundation.css"/>
+    <script src="js/vendor/modernizr.js"></script>
+</head>
+<body>
+<div id="nonprint">
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="row">
+                        <div class="large-8 small-12 columns">
+                            <h1>Stundennachweis</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-8 small-12 columns">
+                            <h4>Daten</h4>
+                            <hr>
+                            <form id="form-data">
+                                <div class="row">
+                                    <div class="small-11">
+                                        <div class="row">
+                                            <div class="small-3 columns">
+                                                <label for="form-name" class="right">Name, Vorname</label>
+                                            </div>
+                                            <div class="small-9 columns">
+                                                <input type="text" name="form-name" id="form-name" placeholder="Name, Vorname" value="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="small-11">
+                                        <div class="row">
+                                            <div class="small-3 columns">
+                                                <label for="form-hours" class="right">Wochenstunden</label>
+                                            </div>
+                                            <div class="small-9 columns">
+                                                <input type="text" name="form-hours" id="form-hours" placeholder="7.5" value="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="small-11">
+                                        <div class="row">
+                                            <div class="small-3 columns">
+                                                <label for="form-start" class="right">Vertragsbeginn</label>
+                                            </div>
+                                            <div class="small-9 columns">
+                                                <select name="form-start" id="form-start">
+                                                    <option value="1">Januar</option>
+                                                    <option value="2">Februar</option>
+                                                    <option value="3">März</option>
+                                                    <option value="4">April</option>
+                                                    <option value="5">Mai</option>
+                                                    <option value="6">Juni</option>
+                                                    <option value="7">Juli</option>
+                                                    <option value="8">August</option>
+                                                    <option value="9">September</option>
+                                                    <option value="10">Oktober</option>
+                                                    <option value="11">November</option>
+                                                    <option value="12">Dezember</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="small-11">
+                                            <div class="row">
+                                                <div class="small-3 columns">
+                                                    <label class="right">Vertragsdauer</label>
+                                                </div>
+                                                <div class="small-9 columns">
+                                                    <input type="radio" name="form-duration" value="1" id="form-duration1"><label for="form-duration1">1 Monat</label>
+                                                    <input type="radio" name="form-duration" value="3" id="form-duration3"><label for="form-duration3">3 Monate</label>
+                                                    <input type="radio" name="form-duration" value="6" id="form-duration6"><label for="form-duration6">6 Monate</label><br />
+                                                    <input type="radio" name="form-duration" value="9" id="form-duration9"><label for="form-duration9">9 Monate</label>
+                                                    <input type="radio" name="form-duration" value="12" id="form-duration12" checked="checked"><label for="form-duration12">12 Monate</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="small-11">
+                                            <div class="row">
+                                                <div class="small-3 columns">
+                                                    <label class="right">Verteilen auf Tage</label>
+                                                </div>
+                                                <div class="small-9 columns">
+                                                    <input type="checkbox" name="form-distribution" value="1" id="form-distribution1" checked="checked"><label for="form-distribution1">Montag</label>
+                                                    <input type="checkbox" name="form-distribution" value="2" id="form-distribution2" checked="checked"><label for="form-distribution2">Dienstag</label>
+                                                    <input type="checkbox" name="form-distribution" value="3" id="form-distribution3"><label for="form-distribution3">Mittwoch</label><br />
+                                                    <input type="checkbox" name="form-distribution" value="4" id="form-distribution4"><label for="form-distribution4">Donnerstag</label>
+                                                    <input type="checkbox" name="form-distribution" value="5" id="form-distribution5"><label for="form-distribution5">Freitag</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="small-11">
+                                            <div class="row">
+                                                <div class="small-3 columns">
+                                                    <label class="right">Arbeitsbeginn</label>
+                                                </div>
+                                                <div class="small-9 columns">
+                                                    <input type="radio" name="form-daystart" value="900" id="form-daystart900" checked="checked"><label for="form-daystart900">9:00 Uhr</label>
+                                                    <input type="radio" name="form-daystart" value="1330" id="form-daystart1330"><label for="form-daystart1330">13:30 Uhr</label><br />
+                                                    <input type="radio" name="form-daystart" value="913" id="form-daystart912"><label for="form-daystart912">9 - 13 Uhr</label>
+                                                    <input type="radio" name="form-daystart" value="1215" id="form-daystart1215"><label for="form-daystart1215">12 - 15 Uhr</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="small-11">
+                                            <div class="row">
+                                                <div class="small-3 columns">
+                                                    <label class="right">Fein-Tuning</label>
+                                                </div>
+                                                <div class="small-9 columns">
+                                                    <input type="checkbox" name="form-distribution-equally" value="1" id="form-distribution-equally"><label for="form-distribution-equally">Arbeitszeit gleichmäßig auf Tage aufteilen</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="small-11">
+                                            <div class="row">
+                                                <div class="small-3 columns"></div>
+                                                <div class="small-9 columns">
+                                                    <br />
+                                                    <button type="submit" class="button">Stundennachweise drucken</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+
+                        <div class="large-4 small-12 columns">
+
+                            <h4>Beschreibung</h4>
+                            <hr>
+                            <div class="panel">
+                                <ol>
+                                    <li>Einstellungen vornehmen</li>
+                                    <li>Seite drucken</li>
+                                    <li>Wenn die Seiten nicht passen, versucht einen anderen Browser</li>
+                                </ol>
+                            </div>
+                            <div class="panel">
+                                Die Stundennachweise werden generiert und sind nur in der Druckansicht sichtbar.
+                                <br />
+                                Es wird am Ende leider eine leere Seite angehängt.
+                                <hr />
+                                <p>
+                                Feiertage werden berücksichtigt und müssen nicht nachgearbeitet werden.
+                                </p>
+                            </div>
+                            <div class="panel">
+                                Getestet mit:
+                                <ul>
+                                    <li>Chrome</li>
+                                    <li>Chromium</li>
+                                    <li>Firefox</li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <footer class="row">
+                <div class="large-12 columns">
+                    <hr>
+                    <div class="row">
+                        <div class="large-6 columns">
+                            <p><span id="year">2015</span> - Lukas Schulze</p>
+                        </div>
+
+                    </div>
+                </div>
+            </footer>
+
+
+        </div>
+    </div>
+</div>
+
+<div id="print">
+
+</div>
+
+<div id="templates">
+    <div class="page">
+        <div class="address">
+            <strong>Hasso-Plattner-Institut</strong>
+            für Softwaresystemtechnik GmbH<br/>
+            Prof.-Dr.-Helmert-Str. 2-3; 14482 Potsdam
+        </div>
+
+        <img class="logo" src="logo.jpg" />
+
+        <div class="title">Stundennachweis</div>
+
+        <div class="name">Name, Vorname</div>
+        <div class="name_value"></div>
+
+        <div class="personalnumber">Personalnummer</div>
+        <div class="personalnumber_value">&nbsp;</div>
+
+        <div class="monthyear">Monat/Jahr</div>
+        <div class="monthyear_value"></div>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Tag</th>
+                <th>Beginn<br/>(Uhrzeit)</th>
+                <th>Pause</th>
+                <th>Ende<br/>(Uhrzeit)</th>
+                <th>Dauer<br/>(Summe)</th>
+                <th>Datum/Unterschrift<br/>(wöchentlich Fachgebiet)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="day number1">
+                <td class="number">1</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+                <td rowspan="7"></td>
+            </tr>
+            <tr class="day number2">
+                <td class="number">2</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            <tr class="day number3">
+                <td class="number">3</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            <tr class="day number4">
+                <td class="number">4</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            <tr class="day number5">
+                <td class="number">5</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            <tr class="day number6">
+                <td class="number">6</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            <tr class="day number7">
+                <td class="number">7</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            <tr class="day number8">
+                <td class="number">8</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+                <td rowspan="7"></td>
+            </tr>
+            <tr class="day number9">
+                <td class="number">9</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            <tr class="day number10">
+                <td class="number">10</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            <tr class="day number11">
+                <td class="number">11</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            <tr class="day number12">
+                <td class="number">12</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            <tr class="day number13">
+                <td class="number">13</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            <tr class="day number14">
+                <td class="number">14</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            <tr class="day number15">
+                <td class="number">15</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+                <td rowspan="7"></td>
+            </tr>
+            <tr class="day number16">
+                <td class="number">16</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            <tr class="day number17">
+                <td class="number">17</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            <tr class="day number18">
+                <td class="number">18</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            <tr class="day number19">
+                <td class="number">19</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            <tr class="day number20">
+                <td class="number">20</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            <tr class="day number21">
+                <td class="number">21</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            <tr class="day number22">
+                <td class="number">22</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+                <td rowspan="7"></td>
+            </tr>
+            <tr class="day number23">
+                <td class="number">23</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            <tr class="day number24">
+                <td class="number">24</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            <tr class="day number25">
+                <td class="number">25</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            <tr class="day number26">
+                <td class="number">26</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            <tr class="day number27">
+                <td class="number">27</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            <tr class="day number28">
+                <td class="number">28</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            <tr class="day number29">
+                <td class="number">29</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+                <td rowspan="3"></td>
+            </tr>
+            <tr class="day number30">
+                <td class="number">30</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            <tr class="day number31">
+                <td class="number">31</td>
+                <td class="begin"></td>
+                <td class="pause"></td>
+                <td class="end"></td>
+                <td class="sum"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="sum">
+            <strong>Summe</strong> <span></span>
+        </div>
+
+        <div class="sign_employee">
+            <span>Datum</span>
+            Unterschrift des Arbeitnehmers
+        </div>
+        <div class="sign_employer">
+            <span>Datum</span>
+            Unterschrift Fachgebiet
+        </div>
+    </div>
+</div>
+
+<script src="js/vendor/jquery.js"></script>
+<script src="js/foundation.min.js"></script>
+<script src="js/base.js"></script>
+<script>
+    $(document).foundation();
+</script>
+
+</body>
+</html>
