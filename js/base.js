@@ -307,7 +307,7 @@ std.submitForm = function(e) {
             var $tr = $('tr.day.number'+day, $page);
 
             if(std.isHoliday(year, month, day)) {
-                $('.star', $tr).text('F');
+                $('.shortcut', $tr).text('F');
             }
             else {
                 $('.begin', $tr).text(event.begin);

@@ -140,6 +140,10 @@
     width: 70px;
 }
 
+.page table td.shortcut {
+    width: 30px;
+}
+
 .page table td.number span {
     width: 0.6cm;
     display: inline-block;
