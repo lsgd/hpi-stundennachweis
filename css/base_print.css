@@ -29,79 +29,85 @@
     page-break-before: always;
 }
 
-.page .address {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-.page .address strong {
-    font-size: 120%;
-    font-weight: bold;
-    display: block;
-}
-
 .page .logo {
     position: absolute;
     top: 0.1cm;
     right: 0;
-    width: 5cm;
+    width: 4.5cm;
 }
 
 .page .title {
-    font-size: 130%;
+    font-size: 150%;
     font-weight: bold;
     position: absolute;
-    top: 2.2cm;
+    top: 0;
 }
 
 .page .name {
     position: absolute;
-    top: 3.2cm;
+    font-weight: bold;
+    top: 1.4cm;
 }
 
 .page .name_value {
     position: absolute;
-    top: 3.2cm;
-    left: 3cm;
-    width: 9cm;
+    top: 1.4cm;
+    left: 4.1cm;
+    width: 5.5cm;
     font-weight: bold;
     padding-left: 0.1cm;
     border-bottom: 1px solid #000;
 }
 
-.page .personalnumber {
+.page .weekhours {
     position: absolute;
-    top: 4cm;
+    top: 2.1cm;
+    font-weight: bold;
+    line-height: 0.4cm;
 }
 
-.page .personalnumber_value {
+.page .weekhours_value {
     position: absolute;
-    top: 4cm;
-    left: 3cm;
-    width: 2.5cm;
+    top: 2.2cm;
+    left: 4.1cm;
+    width: 5.5cm;
     padding-left: 0.1cm;
     border-bottom: 1px solid #000;
 }
 
 .page .monthyear {
     position: absolute;
-    top: 4cm;
-    left: 6cm;
+    top: 3.1cm;
+    font-weight: bold;
 }
 
 .page .monthyear_value {
     position: absolute;
-    top: 4cm;
-    left: 8.1cm;
-    width: 3.9cm;
-    font-weight: bold;
+    top: 3.1cm;
+    left: 4.1cm;
+    width: 2.5cm;
+    padding-left: 0.1cm;
+    border-bottom: 1px solid #000;
+}
+
+.page .personalnumber {
+    position: absolute;
+    top: 3.1cm;
+    left: 7.4cm;
+}
+
+.page .personalnumber_value {
+    position: absolute;
+    top: 3.1cm;
+    left: 9.2cm;
+    width: 2.5cm;
     padding-left: 0.1cm;
     border-bottom: 1px solid #000;
 }
 
 .page table {
     position: absolute;
-    top: 5.2cm;
+    top: 4.5cm;
     border-collapse: collapse;
     border: 1px solid #000;
     width: 100%;
@@ -117,15 +123,31 @@
     text-align: center;
     font-weight: normal;
     white-space: nowrap;
+    background-color: gray;
 }
 
 .page table td {
     text-align: center;
 }
 
+.page table td.number {
+    width: 65px;
+}
+.page table td.begin,
+.page table td.pause,
+.page table td.end,
+.page table td.sum {
+    width: 70px;
+}
+
+.page table td.number span {
+    width: 0.6cm;
+    display: inline-block;
+}
+
 .page div.sum {
     position: absolute;
-    top: 23.9cm;
+    top: 23.2cm;
     left: 6.3cm;
     width: 3cm;
     border-bottom: 2px double #000;
@@ -137,7 +159,7 @@
 
 .page .sign_employee {
     position: absolute;
-    top: 25.5cm;
+    top: 25cm;
     width: 7cm;
     border-top: 1px solid #000;
     font-size: 90%;
@@ -150,7 +172,7 @@
 
 .page .sign_employer {
     position: absolute;
-    top: 25.5cm;
+    top: 25cm;
     left: 8.5cm;
     width: 7cm;
     border-top: 1px solid #000;
