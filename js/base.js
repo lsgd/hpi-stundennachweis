@@ -220,6 +220,13 @@ std.submitForm = function(e) {
     }
     weekHours = parseFloat(weekHours);
 
+    var personnelNmbr = $('#form-personnelnr').val();
+    if(personnelNmbr.trim() == '' || isNaN(personnelNmbr)) {
+        alert('Bitte gib eine gültige Zahl ein.');
+        $('#form-personnelnr').focus();
+        return;
+    }
+
     var duration = parseInt($('input[name=form-duration]:checked', $(this)).val());
     var monthStart = parseInt($('#form-start').val());
 
@@ -254,6 +261,7 @@ std.submitForm = function(e) {
 
         var $page = $('#templates .page').clone();
         $('.name_value', $page).text(name);
+        $('.personalnumber_value', $page).text(personnelNmbr);
         $('.monthyear_value', $page).text(month + '/' + year);
 
         var day = 1;
