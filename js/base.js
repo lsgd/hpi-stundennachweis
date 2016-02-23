@@ -221,7 +221,7 @@ std.submitForm = function(e) {
     weekHours = parseFloat(weekHours);
 
     var personnelNmbr = $('#form-personnelnr').val();
-    if(personnelNmbr.trim() == '' || isNaN(personnelNmbr)) {
+    if(isNaN(personnelNmbr)) {
         alert('Bitte gib eine gültige Zahl ein.');
         $('#form-personnelnr').focus();
         return;
