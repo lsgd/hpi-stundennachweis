@@ -141,6 +141,19 @@
                                                 </div>
                                                 <div class="small-9 columns">
                                                     <input type="checkbox" name="form-distribution-equally" value="1" checked="checked" id="form-distribution-equally"><label for="form-distribution-equally">Arbeitszeit gleichmäßig auf Tage aufteilen</label>
+                                                    <input type="checkbox" name="form-autofill-employee-date" value="0" id="form-autofill-employee-date"><label for="form-autofill-employee-date">Datum der Unterschrift vorausfüllen</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="small-11">
+                                            <div class="row">
+                                                <div class="small-3 columns">
+                                                    <label class="right" for="form-autofill-employee-signature">Unterschrift hinzufügen (optional)</label>
+                                                </div>
+                                                <div class="small-9 columns">
+                                                    <input type="file" name="form-autofill-employee-signature" id="form-autofill-employee-signature" accept="image/png, image/jpeg">
                                                 </div>
                                             </div>
                                         </div>
@@ -538,6 +551,10 @@
         <div class="sign_employee">
             <span>Datum</span>
             Unterschrift des Arbeitnehmers
+        </div>
+        <div class="autosign_employee">
+            <span class="sign_employee_date_value"></span>
+            <img id="sign_employee_img_value" src="" alt="">
         </div>
         <div class="sign_employer">
             <span>Datum</span>

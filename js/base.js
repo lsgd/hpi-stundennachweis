@@ -219,6 +219,27 @@ std.daysInMonth = function(month, year) {
     return new Date(year, month, 0).getDate();
 }
 
+$(document).ready(function() {
+    const signature_input = $("#form-autofill-employee-signature");
+    signature_input.val("")
+    if (!FileReader) {
+        signature_input.prop("disabled", true)
+        signature_input.attr('title', 'Your browser does not support FileReader.');
+    }
+});
+
+document.getElementById('form-autofill-employee-signature').onchange = function (event) {
+    console.info("Reading employee signature")
+    let files = event.target.files
+    if (files && files.length) {
+        const r = new FileReader();
+        r.onload = function () {
+            document.getElementById("sign_employee_img_value").src = r.result;
+        }
+        r.readAsDataURL(files[0]);
+    }
+}
+
 std.submitForm = function(e) {
     e.preventDefault();
 
@@ -282,6 +303,14 @@ std.submitForm = function(e) {
         $('.personalnumber_value', $page).text(personnelNmbr);
         $('.monthyear_value', $page).text(month + ' / ' + year);
         $('.weekhours_value', $page).text(weekHours);
+
+        var autofillEmployeeDate = $('input[name=form-autofill-employee-date]:first', $(this)).is(':checked');
+
+        if (autofillEmployeeDate) {
+            const date = new Date(year, month-1, 1)
+            const signing_date = new Date(date.setMonth(date.getMonth() + 1))
+            $('.sign_employee_date_value', $page).text(signing_date.toLocaleDateString("de-DE"));
+        }
 
         var day = 1;
         var weekday = new Date(year, month-1, day).getDay();

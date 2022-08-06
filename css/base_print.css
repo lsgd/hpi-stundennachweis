@@ -187,3 +187,16 @@
     margin-right: 1.4cm;
     padding-left: 0.1cm;
 }
+
+.page .autosign_employee {
+    position: absolute;
+    top: 25.5cm;
+    width: 7cm;
+    border-top: 1px solid #000;
+    font-size: 90%;
+}
+
+.page .autosign_employee span {
+    margin-right: 1.3cm;
+    padding-left: 0.1cm;
+}
